@@ -2,7 +2,6 @@ import json
 from django.shortcuts import render
 from flask import Flask, Response, jsonify, render_template, request
 
-from duplicate import duplicate
 app = Flask(__name__, template_folder='templates')
 
 
@@ -15,7 +14,6 @@ def index():
 def show():
     with open('Store.json') as f:
         data = json.loads(f.read())
-        print(data)
     return Response(render_template('show.html', data=data))
 
 
@@ -23,7 +21,7 @@ def show():
 def process_form():
     with open('Store.json') as f:
         data = json.loads(f.read())
-        print(data)
+
     data[len(data)] = request.form
 
     with open('Store.json', 'w') as f:

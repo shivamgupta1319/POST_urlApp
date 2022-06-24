@@ -4,12 +4,19 @@ import json
 def duplicate():
     with open('Store.json') as f:
         data = json.loads(f.read())
-        print(data)
 
     all = []
     for key, value in data.items():
-        print(key)
-        print(value)
-        all.append(value)
+        v = str(value)
+        print(v)
+        all.append(v)
 
-    return all
+
+def check(a):
+    a = a.strip(')])').lstrip('ImmutableMultiDict([(').replace(",", ":")
+    a = "{"+a+"}"
+    for i in all:
+        if i in a:
+            return True
+        else:
+            return False
