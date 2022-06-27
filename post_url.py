@@ -14,7 +14,7 @@ def index():
 def show():
     with open('Store.json') as f:
         data = json.loads(f.read())
-    return Response(render_template('show.html', data=data))
+    return render_template('show.html', data=data)
 
 
 @app.route('/post', methods=['POST'])
